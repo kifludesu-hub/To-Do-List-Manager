@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+
+
+    <title>To Do List Practice</title>
+</head>
+<body>
+    <h2 class="header-list"> <i style="color: blue;"  class="bi bi-list-task"></i> To Do List Manager </h2>
+   <div class="main-content">
+
+    <div class="upper-container"> 
+        <div class="container">
+            <input type="text" class="inputField" placeholder="add tasks...">
+             <input type="date" class="date">
+             <button id="addBtn" class="addBtn"title="Add task">ADD</button>
+        </div>
+        <div class="filterBtns">
+            <button id="all"  class="filter-task all"data-filter="all" title="All tasks">All</button>
+            <button id="complete" class="filter-task complete"data-filter="completed" title="Completed tasks">Completed</button>
+            <button id="pending" class="filter-task pending"data-filter="pending" title="Waiting tasks">Pending</button>
+            
+        </div>
+        <div class=" list-container"></div></div>
+        <div class="noInput-Error"></div>
+
+   </div>
+<script src="todo.js"></script>
+</body>
+</html>

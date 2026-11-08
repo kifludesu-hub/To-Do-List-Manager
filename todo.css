@@ -1,0 +1,283 @@
+/*
+features to add
+
+A dark mode toggle.
+A beautiful task counter.
+A progress bar showing completed tasks.
+smooth animations when adding and deleting tasks.
+A responsive mobile layout. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f4fb;
+    color: #263248;
+    min-height: 100vh;
+    padding: 35px 20px;
+}
+.header-list {
+    text-align: center;
+    color: #27345c;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.main-content {
+    max-width: 950px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(40, 50, 80, 0.08);
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 180px 120px;
+    gap: 15px;
+    width: 100%;
+}
+
+.inputField,
+.date {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce2ef;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: #f9faff;
+    color: #263248;
+    transition: 0.3s ease;
+}
+
+.inputField:focus,
+.date:focus {
+    border-color: #6558d3;
+    box-shadow: 0 0 0 3px rgba(101, 88, 211, 0.12);
+}
+
+.addBtn {
+    background: #6558d3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.addBtn:hover {
+    background: #493bb5;
+    transform: translateY(-2px);
+}
+
+.filterBtns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0 20px;
+    flex-wrap: wrap;
+}
+
+.filter-task {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+#all {
+    background: #e9e7ff;
+    color: #6558d3;
+}
+
+#all:hover {
+    background: #6558d3;
+    color: white;
+}
+
+#complete {
+    background: #e0f7ec;
+    color: #15965b;
+}
+
+#complete:hover {
+    background: #15965b;
+    color: white;
+}
+
+#pending {
+    background: #fff1d9;
+    color: #c17a13;
+}
+
+#pending:hover {
+    background: #c17a13;
+    color: white;
+}
+
+.list-container {
+    display: grid;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.listOfItems {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) 140px 45px 45px;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #edf0f7;
+    border-radius: 9px;
+    background: #ffffff;
+    transition: 0.3s ease;
+}
+
+.listOfItems:hover {
+    background: #f7f8ff;
+    border-color: #d9d5ff;
+    transform: translateY(-2px);
+}
+
+.listOfItems li {
+    list-style: none;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.listOfItems.checked li {
+    text-decoration: line-through;
+    color: #15965b;
+}
+
+.checkbox {
+    width: 17px;
+    height: 17px;
+    accent-color: #6558d3;
+    cursor: pointer;
+}
+
+.edit {
+    background: #eeeaff;
+    color: #6558d3;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit:hover {
+    background: #6558d3;
+    color: white;
+}
+
+.deleteBtn {
+    background: #ffebeb;
+    color: #e04444;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.deleteBtn:hover {
+    background: #e04444;
+    color: white;
+}
+
+.delete {
+    position: relative;
+    background: #fff0f0;
+    color: #d63030;
+    padding: 12px 40px 12px 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #e04444;
+}
+
+.delete .remove-notification {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: #e04444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .header-list {
+        font-size: 23px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .filterBtns {
+        gap: 8px;
+    }
+
+    .filter-task {
+        padding: 9px 12px;
+    }
+
+    .listOfItems {
+        grid-template-columns: 25px minmax(0, 1fr) 40px 40px;
+        gap: 8px;
+        padding: 12px 7px;
+    }
+
+    .listOfItems li:nth-of-type(2) {
+        display: none;
+    }
+
+    .edit,
+    .deleteBtn {
+        width: 38px;
+        padding: 9px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .filter-task {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .listOfItems {
+        gap: 5px;
+    }
+}
